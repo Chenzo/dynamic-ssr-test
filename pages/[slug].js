@@ -11,11 +11,19 @@ const TestCompTwo = dynamic(() => import('@/components/TestCompTwo'), {
 }) 
 
 
+
+
+
+
+
+
+
+
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Dyanmic Import SSR</title>
 
       </Head>
       <main className={styles.main}>
@@ -29,3 +37,30 @@ export default function Home() {
     </>
   )
 }
+
+
+export async function getStaticPaths(context) {
+
+
+    const paths = [
+      { params: { slug: 'test' } },
+      { params: { slug: 'test2' } },
+      { params: { slug: 'test3' } }
+    ];
+
+    return {
+      paths,
+      fallback: 'blocking',
+    };
+
+}
+
+export async function getStaticProps(context) {
+  
+    return {
+      props: {
+        slug: context.params.slug
+      },
+    }
+  }
+  
