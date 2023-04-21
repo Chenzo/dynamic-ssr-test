@@ -3,23 +3,14 @@ import dynamic from 'next/dynamic'
 import styles from '@/styles/Home.module.css'
 
 import TestCompOne from '@/components/TestCompOne'
-//import TestCompTwo from '@/components/TestCompTwo'
-
 const TestCompTwo = dynamic(() => import('@/components/TestCompTwo'), {
   loading: () => <span>...placeholder for Test Comp 2...</span>,
   ssr: true,
 }) 
-
 const TestCompThree = dynamic(() => import('@/components/TestCompThree'), {
   loading: () => <span>...3rd place holder...</span>,
   ssr: false,
 })
-
-
-
-
-
-
 
 
 
