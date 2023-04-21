@@ -10,6 +10,10 @@ const TestCompTwo = dynamic(() => import('@/components/TestCompTwo'), {
   ssr: true,
 }) 
 
+const TestCompThree = dynamic(() => import('@/components/TestCompThree'), {
+  loading: () => <span>...3rd place holder...</span>,
+  ssr: false,
+})
 
 
 
@@ -32,6 +36,9 @@ export default function Home() {
         </div>
         <div id="comp2" className={styles.compy}>
           <TestCompTwo />
+        </div>
+        <div id="comp3" className={styles.compy}>
+          <TestCompThree />
         </div>
       </main>
     </>
@@ -63,4 +70,4 @@ export async function getStaticProps(context) {
       },
     }
   }
-  
+
